@@ -2,7 +2,7 @@
 <center>Last Backup Date</center>
 <center id="backupdate">Loading</center>
 <br>
-<center>Server Status (with Duplicati)</center>
+<center>Server Status</center>
 <center id="status">Loading</center>
 
 <br>
@@ -38,12 +38,12 @@
         .then(response => {
             console.log(response);
             if(response.status === 200){
-                document.getElementById("status").innerHTML = "UP";
+                document.getElementById("status").innerHTML = "Working";
             }else{
-                document.getElementById("status").innerHTML = "DOWN";
+                document.getElementById("status").innerHTML = "Not Working";
             }
         })
-        .catch(error => document.getElementById("status").innerHTML = "DOWN");
+        .catch(error => document.getElementById("status").innerHTML = "Not Sure");
 
 </script>
 
