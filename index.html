@@ -3,7 +3,7 @@
 <center id="backupdate">Loading</center>
 <br>
 <center>Server Status (with Duplicati)</center>
-<center id="status">UP</center>
+<center id="status">Loading</center>
 
 
 <script>
@@ -18,24 +18,17 @@
         .then(result => {
             console.log(result);
             document.getElementById("backupdate").innerHTML = result;
-            })
+        })
         .catch(error => console.log('error', error));
 
 
-        
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+  
 
-xhr.addEventListener("readystatechange", function() {
-  if(this.readyState === 4) {
-    console.log(this.responseText);
-  }
-});
+    fetch("https://0636e3bfe25a.ngrok.io/ngrok.log", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 
-xhr.open("GET", "https://fe1d78c246de.ngrok.io/");
-xhr.setRequestHeader("Cookie", "xsrf-token=8sQHggs9%2Fr1AxWF%2BKmuLl%2F9Hqt%2FSiJhs0jFK9ta8%2BwU%3D");
-
-xhr.send();
 </script>
 
 </html>
