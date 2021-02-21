@@ -5,6 +5,13 @@
 <center>Server Status (with Duplicati)</center>
 <center id="status">Loading</center>
 
+<br>
+
+<center >
+    <button style="width: fit-content; height: fit-content;font-size: 10vw;" onClick="reload()">Reload</button>
+</center>
+
+
 
 <script>
     var requestOptions = {
@@ -12,6 +19,9 @@
         redirect: 'follow'
     };
 
+    function reload(){
+        location.reload();
+    }
 
     fetch("https://gdrive-read.glitch.me/getLatestBackupDate", requestOptions)
         .then(response => response.text())
