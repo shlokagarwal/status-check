@@ -39,11 +39,14 @@
             console.log(response);
             if(response.status === 200){
                 document.getElementById("status").innerHTML = "Working";
+                document.getElementById("status").style.color = "#05e805";
             }else{
                 document.getElementById("status").innerHTML = "Not Working";
+                document.getElementById("status").style.color = "red";
             }
         })
         .catch(error => document.getElementById("status").innerHTML = "Not Sure");
+        
 
 </script>
 
