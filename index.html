@@ -1,0 +1,41 @@
+<html style="font-size: 10vw;">
+<center>Last Backup Date</center>
+<center id="backupdate">Loading</center>
+<br>
+<center>Server Status (with Duplicati)</center>
+<center id="status">UP</center>
+
+
+<script>
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+
+    fetch("https://gdrive-read.glitch.me/getLatestBackupDate", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            console.log(result);
+            document.getElementById("backupdate").innerHTML = result;
+            })
+        .catch(error => console.log('error', error));
+
+
+        
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://fe1d78c246de.ngrok.io/");
+xhr.setRequestHeader("Cookie", "xsrf-token=8sQHggs9%2Fr1AxWF%2BKmuLl%2F9Hqt%2FSiJhs0jFK9ta8%2BwU%3D");
+
+xhr.send();
+</script>
+
+</html>
